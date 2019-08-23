@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultadosActivity"
+    android:id="@+id/relative_resultados">
+
+    <ProgressBar
+        android:id="@+id/progreso"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:progressDrawable="@drawable/ring"
+        android:progress="100" />
+
+    <TextView
+        android:id="@+id/lbd_porcentaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:text="0%"
+        android:textSize="35dp"/>
+
+    <TextView
+        android:id="@+id/fail"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/progreso"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/ic_fail"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/erores"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progreso"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="81dp"
+        android:layout_marginTop="20dp"
+        android:text="Respuesta erronea en las preguntas 5,8,9"
+        android:textSize="18dp"
+        android:visibility="invisible"/>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SelectResActivity"
+    android:id="@+id/relative_select_res">
+
+    <TextView
+        android:id="@+id/lbd_muestra_res"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mostrar resultados"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif"/>
+
+    <TextView
+        android:id="@+id/opt_algebra"
+        android:layout_width="380dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="150dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/squareblue"
+        android:text="Álgebra"
+        android:textSize="35dp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/opt_geometria"
+        android:layout_width="380dp"
+        android:layout_height="90dp"
+        android:layout_below="@id/opt_algebra"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/squarebluelight"
+        android:text="Geometría Analítica"
+        android:textSize="35dp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/opt_trigonometria"
+        android:layout_width="380dp"
+        android:layout_height="90dp"
+        android:layout_below="@id/opt_geometria"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/squareorange"
+        android:text="Trigonometría"
+        android:textSize="35dp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:gravity="center"/>
+
+</RelativeLayout>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistroActivity"
+    android:background="@color/colorPrimaryDark">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/math1" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="155dp"
+        android:layout_marginLeft="165dp"
+        android:text="MA"
+        android:textSize="30dp"
+        android:fontFamily="@font/roboto"
+        android:textColor="@color/orange"/>
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="155dp"
+        android:layout_marginLeft="210dp"
+        android:text="TH"
+        android:textSize="30dp"
+        android:fontFamily="@font/roboto"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/lbd_back"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/ic_back"/>
+
+    <EditText
+        android:id="@+id/edt_nombre"
+        android:layout_width="270dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="280dp"
+        android:hint="Nombre"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:textColorHint="@color/white"
+        android:background="@drawable/borde"/>
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/ic_user"
+        android:layout_marginTop="285dp"
+        android:layout_marginLeft="45dp"/>
+
+    <EditText
+        android:id="@+id/edt_apellido"
+        android:layout_width="270dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="90dp"
+        android:layout_below="@id/edt_nombre"
+        android:layout_marginTop="15dp"
+        android:hint="Apellido"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        android:background="@drawable/borde"/>
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/ic_user"
+        android:layout_below="@id/edt_nombre"
+        android:layout_marginTop="21dp"
+        android:layout_marginLeft="45dp"/>
+
+    <EditText
+        android:id="@+id/edt_correo"
+        android:layout_width="270dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="90dp"
+        android:layout_below="@id/edt_apellido"
+        android:layout_marginTop="15dp"
+        android:hint="correo electronico"
+        android:textColorHint="@color/white"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:background="@drawable/borde"
+        android:inputType="textEmailAddress"/>
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/ic_mail"
+        android:layout_below="@id/edt_apellido"
+        android:layout_marginTop="21dp"
+        android:layout_marginLeft="45dp"/>
+
+    <Button
+        android:id="@+id/btn_registro"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/edt_correo"
+        android:layout_marginTop="60dp"
+        android:text="Registrar"
+        android:textColor="@color/white"
+        android:background="@drawable/button_orange"/>
+
+</RelativeLayout>

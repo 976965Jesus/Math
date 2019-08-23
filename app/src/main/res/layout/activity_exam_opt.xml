@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ExamOptActivity"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/lbdQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="Elige la opcion correcta"
+        android:textColor="@color/orange"
+        android:textSize="30dp"
+        app:fontFamily="sans-serif"/>
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:text="Pregunta"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/lbdQuestion"
+        android:layout_marginTop="25dp"/>
+
+    <RadioGroup
+        android:id="@+id/rGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/question"
+        android:layout_marginTop="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="55dp">
+
+        <RadioButton
+            android:id="@+id/optA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion A"
+            android:textSize="23dp"
+            android:textColor="@color/otrogris"/>
+
+        <RadioButton
+            android:id="@+id/optB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion B"
+            android:textSize="23dp"
+            android:textColor="@color/otrogris"/>
+
+        <RadioButton
+            android:id="@+id/optC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion C"
+            android:textSize="23dp"
+            android:textColor="@color/otrogris"/>
+
+        <RadioButton
+            android:id="@+id/optD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion D"
+            android:textSize="23dp"
+            android:textColor="@color/otrogris"/>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_continua"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/rGroup"
+        android:layout_marginTop="200dp"
+        android:layout_centerHorizontal="true"
+        android:text="Continuar"
+        android:textSize="18dp"
+        android:textColor="@color/white"
+        android:background="@drawable/button_orange"/>
+
+</RelativeLayout>
