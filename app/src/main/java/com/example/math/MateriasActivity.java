@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class MateriasActivity extends AppCompatActivity {
 
-    TextView titulo,algebra;
+    TextView titulo,algebra,geometria,trigonometria;
     RelativeLayout ll;
     String tema,indica;
     @Override
@@ -23,6 +23,8 @@ public class MateriasActivity extends AppCompatActivity {
 
         titulo = (TextView) findViewById(R.id.lbd_title_materias);
         algebra = (TextView) findViewById(R.id.opt_algebra);
+        geometria = (TextView) findViewById(R.id.opt_geometria);
+        trigonometria = (TextView) findViewById(R.id.opt_trigonometria);
         ll = (RelativeLayout) findViewById(R.id.relative_materias);
 
         cargarPreferencias();
@@ -43,16 +45,29 @@ public class MateriasActivity extends AppCompatActivity {
         algebra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ingresa_algebra();
+                ingresa();
+            }
+        });
+        geometria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ingresa();
+            }
+        });
+        trigonometria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ingresa();
             }
         });
     }
 
-    public void ingresa_algebra(){
+    public void ingresa(){
         Intent intent = new Intent(MateriasActivity.this,ExamOpt2Activity.class);
         intent.putExtra("tema",indica);
         startActivity(intent);
     }
+
 
     public void cargarPreferencias(){
         SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
