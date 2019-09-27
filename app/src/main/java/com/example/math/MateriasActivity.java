@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.math.preguntas.Exam_2_1Activity;
+
 public class MateriasActivity extends AppCompatActivity {
 
     TextView titulo,algebra,geometria,trigonometria;
@@ -63,7 +65,7 @@ public class MateriasActivity extends AppCompatActivity {
     }
 
     public void ingresa(){
-        Intent intent = new Intent(MateriasActivity.this,ExamOpt2Activity.class);
+        Intent intent = new Intent(MateriasActivity.this, Exam_2_1Activity.class);
         intent.putExtra("tema",indica);
         startActivity(intent);
     }

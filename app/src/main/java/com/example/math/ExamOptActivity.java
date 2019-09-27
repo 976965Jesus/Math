@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.math.preguntas.Exam_2_1Activity;
+
 public class ExamOptActivity extends AppCompatActivity {
     Button continua;
 
@@ -25,7 +27,7 @@ public class ExamOptActivity extends AppCompatActivity {
     }
 
     private void continuar(){
-        Intent intent = new Intent(ExamOptActivity.this,ExamOpt2Activity.class);
+        Intent intent = new Intent(ExamOptActivity.this, Exam_2_1Activity.class);
         startActivity(intent);
     }
 }

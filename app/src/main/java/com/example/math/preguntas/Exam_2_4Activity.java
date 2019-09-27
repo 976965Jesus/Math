@@ -1,4 +1,4 @@
-package com.example.math;
+package com.example.math.preguntas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,9 @@ import android.os.Bundle;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class ExamOpt2Activity extends AppCompatActivity {
+import com.example.math.R;
+
+public class Exam_2_4Activity extends AppCompatActivity {
 
     String indica,tema;
     RelativeLayout ll;
@@ -18,10 +20,10 @@ public class ExamOpt2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_exam_opt2);
+        setContentView(R.layout.activity_exam_2_4);
 
-        ll = (RelativeLayout) findViewById(R.id.relative_exam2);
-        question = (TextView) findViewById(R.id.question);
+        ll = (RelativeLayout) findViewById(R.id.relative_exam2_4);
+        question = (TextView) findViewById(R.id.question_4);
 
         cargarPreferencias();
         indica = getIntent().getStringExtra("tema");
@@ -39,14 +41,14 @@ public class ExamOpt2Activity extends AppCompatActivity {
 
     public void guardarPreferencias(){
         SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
-        indica = misPreferencias.getString("indicadorExam2","");
+        indica = misPreferencias.getString("indicadorExam2_4","");
     }
 
     public void cargarPreferencias(){
         SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = misPreferencias.edit();
 
-        editor.putString("indicadorExam2",tema);
+        editor.putString("indicadorExam2_4",tema);
         editor.commit();
     }
 }
