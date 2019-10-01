@@ -46,6 +46,7 @@ public class Exam_2_1Activity extends AppCompatActivity {
         alumno = (Alumno) bundleRecibido.getSerializable("Alumno");
         Materia = (int) bundleRecibido.getInt("Materia");
 
+        //variable btn_continua2 se le agrego _1 por ser la pantalla de la primera pregunta
         btn_continuar = (Button) findViewById(R.id.btn_continua2_1);
         textArea = (EditText) findViewById(R.id.input_res1);
 
