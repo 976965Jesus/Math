@@ -1,4 +1,4 @@
-package com.example.math;
+package com.example.math.preguntas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,7 +18,9 @@ import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
-public class ExamOpt2Activity extends AppCompatActivity {
+import com.example.math.R;
+
+public class Exam_2_1Activity extends AppCompatActivity {
 
     //Atributos Externos del frame (Abraham)
     Alumno alumno = null;
@@ -36,7 +38,7 @@ public class ExamOpt2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_exam_opt2);
+        setContentView(R.layout.activity_exam_2_1);
 
         Bundle bundleRecibido = getIntent().getExtras();
         alumno = (Alumno) bundleRecibido.getSerializable("Alumno");

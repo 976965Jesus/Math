@@ -11,13 +11,19 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.math.preguntas.Exam_2_1Activity;
+
 public class MateriasActivity extends AppCompatActivity {
 
+<<<<<<< HEAD
     //Atributos Externos d ela Clase
     Alumno alumno = null;
 
     //Atributos internos de la clase
     TextView titulo,algebra;
+=======
+    TextView titulo,algebra,geometria,trigonometria;
+>>>>>>> a966098fda19b6d421fc11fe3d3ccb8eae3607dd
     RelativeLayout ll;
     String tema,indica;
     @Override
@@ -30,6 +36,8 @@ public class MateriasActivity extends AppCompatActivity {
 
         titulo = (TextView) findViewById(R.id.lbd_title_materias);
         algebra = (TextView) findViewById(R.id.opt_algebra);
+        geometria = (TextView) findViewById(R.id.opt_geometria);
+        trigonometria = (TextView) findViewById(R.id.opt_trigonometria);
         ll = (RelativeLayout) findViewById(R.id.relative_materias);
 
         cargarPreferencias();
@@ -50,11 +58,24 @@ public class MateriasActivity extends AppCompatActivity {
         algebra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ingresa_algebra();
+                ingresa();
+            }
+        });
+        geometria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ingresa();
+            }
+        });
+        trigonometria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ingresa();
             }
         });
     }
 
+<<<<<<< HEAD
     public void ingresa_algebra(){
         //Intent intent = new Intent(MateriasActivity.this,ExamOpt2Activity.class);
         //intent.putExtra("tema",indica);
@@ -65,10 +86,15 @@ public class MateriasActivity extends AppCompatActivity {
         bundle.putSerializable("Alumno", alumno);
         intent.putExtras(bundle);
         intent.putExtra("Materia", 1);
+=======
+    public void ingresa(){
+        Intent intent = new Intent(MateriasActivity.this, Exam_2_1Activity.class);
+>>>>>>> a966098fda19b6d421fc11fe3d3ccb8eae3607dd
         intent.putExtra("tema",indica);
         startActivity(intent);
 
     }
+
 
     public void cargarPreferencias(){
         SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
