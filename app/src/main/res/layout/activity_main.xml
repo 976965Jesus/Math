@@ -79,11 +79,11 @@
     <Button
         android:id="@+id/btn_login"
         android:layout_width="220dp"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
         android:layout_below="@id/edt_usuario"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
-        android:background="@drawable/button_orange"
+        android:background="@drawable/button_green"
         android:text="@string/login"
         android:textColor="@color/white"
         android:textSize="18dp"

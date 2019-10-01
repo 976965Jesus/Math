@@ -16,6 +16,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.math.Alumno;
+import com.example.math.AdminSQLiteOpenHelper;
+
 import java.text.DecimalFormat;
 
 import com.example.math.R;
@@ -26,7 +29,6 @@ public class Exam_2_1Activity extends AppCompatActivity {
     Alumno alumno = null;
     int Materia = 0;
     int numPregunta = 1;
-
 
     Button btn_continuar;
     EditText textArea;
@@ -44,11 +46,11 @@ public class Exam_2_1Activity extends AppCompatActivity {
         alumno = (Alumno) bundleRecibido.getSerializable("Alumno");
         Materia = (int) bundleRecibido.getInt("Materia");
 
-        btn_continuar = (Button) findViewById(R.id.btn_continua2);
-        textArea = (EditText) findViewById(R.id.text_area);
+        btn_continuar = (Button) findViewById(R.id.btn_continua2_1);
+        textArea = (EditText) findViewById(R.id.input_res1);
 
         ll = (RelativeLayout) findViewById(R.id.relative_exam2);
-        question = (TextView) findViewById(R.id.question);
+        question = (TextView) findViewById(R.id.question_1);
 
         cargarPreferencias();
         indica = getIntent().getStringExtra("tema");

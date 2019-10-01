@@ -13,19 +13,22 @@ import android.widget.TextView;
 
 import com.example.math.preguntas.Exam_2_1Activity;
 
+import com.example.math.preguntas.Exam_2_1Activity;
+
 public class MateriasActivity extends AppCompatActivity {
 
-<<<<<<< HEAD
+    //<<<<<<< HEAD
     //Atributos Externos d ela Clase
     Alumno alumno = null;
 
     //Atributos internos de la clase
-    TextView titulo,algebra;
-=======
-    TextView titulo,algebra,geometria,trigonometria;
->>>>>>> a966098fda19b6d421fc11fe3d3ccb8eae3607dd
+    //TextView titulo,algebra;
+//=======
+    TextView titulo, algebra, geometria, trigonometria;
+    //>>>>>>> a966098fda19b6d421fc11fe3d3ccb8eae3607dd
     RelativeLayout ll;
-    String tema,indica;
+    String tema, indica;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,70 +48,73 @@ public class MateriasActivity extends AppCompatActivity {
         indica = getIntent().getStringExtra("tema");
         tema = indica;
 
-        if (indica.equals("on")){
+        if (indica.equals("on")) {
             ll.setBackgroundColor(Color.rgb(25, 25, 25));
-            titulo.setTextColor(Color.rgb(255,255,255));
+            titulo.setTextColor(Color.rgb(255, 255, 255));
             guardarPreferencias();
-        }if (indica.equals("off")){
-            ll.setBackgroundColor(Color.rgb(255,255,255));
-            titulo.setTextColor(Color.rgb(32,32,32));
+        }
+        if (indica.equals("off")) {
+            ll.setBackgroundColor(Color.rgb(255, 255, 255));
+            titulo.setTextColor(Color.rgb(32, 32, 32));
             guardarPreferencias();
         }
 
         algebra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ingresa();
+                ingresa_algebra();
             }
         });
         geometria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ingresa();
+                //ingresa();
             }
         });
         trigonometria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ingresa();
+                //ingresa();
             }
         });
     }
 
-<<<<<<< HEAD
-    public void ingresa_algebra(){
+    //<<<<<<< HEAD
+    public void ingresa_algebra() {
         //Intent intent = new Intent(MateriasActivity.this,ExamOpt2Activity.class);
         //intent.putExtra("tema",indica);
         //startActivity(intent);
 
-        Intent intent = new Intent(MateriasActivity.this, ExamOpt2Activity.class);
+        Intent intent = new Intent(MateriasActivity.this, Exam_2_1Activity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("Alumno", alumno);
         intent.putExtras(bundle);
         intent.putExtra("Materia", 1);
-=======
+        intent.putExtra("tema", indica);
+        startActivity(intent);
+/*/=======
     public void ingresa(){
         Intent intent = new Intent(MateriasActivity.this, Exam_2_1Activity.class);
->>>>>>> a966098fda19b6d421fc11fe3d3ccb8eae3607dd
+//>>>>>>> a966098fda19b6d421fc11fe3d3ccb8eae3607dd
         intent.putExtra("tema",indica);
         startActivity(intent);
-
+*/
     }
 
 
-    public void cargarPreferencias(){
-        SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
-        indica = misPreferencias.getString("indicadorMaterias","");
+        public void cargarPreferencias () {
+            SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
+            indica = misPreferencias.getString("indicadorMaterias", "");
+        }
+
+        public void guardarPreferencias () {
+            SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = misPreferencias.edit();
+
+            editor.putString("indicadorMaterias", tema);
+
+            editor.commit();
+        }
+
     }
 
-    public void guardarPreferencias(){
-        SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario",Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = misPreferencias.edit();
-
-        editor.putString("indicadorMaterias",tema);
-
-        editor.commit();
-    }
-
-
-}
