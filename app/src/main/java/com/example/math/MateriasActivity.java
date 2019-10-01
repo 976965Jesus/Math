@@ -13,6 +13,10 @@ import android.widget.TextView;
 
 public class MateriasActivity extends AppCompatActivity {
 
+    //Atributos Externos d ela Clase
+    Alumno alumno = null;
+
+    //Atributos internos de la clase
     TextView titulo,algebra;
     RelativeLayout ll;
     String tema,indica;
@@ -20,6 +24,9 @@ public class MateriasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_materias);
+
+        Bundle bundleRecibido = getIntent().getExtras();
+        alumno = (Alumno) bundleRecibido.getSerializable("Alumno");
 
         titulo = (TextView) findViewById(R.id.lbd_title_materias);
         algebra = (TextView) findViewById(R.id.opt_algebra);
@@ -49,9 +56,18 @@ public class MateriasActivity extends AppCompatActivity {
     }
 
     public void ingresa_algebra(){
-        Intent intent = new Intent(MateriasActivity.this,ExamOpt2Activity.class);
+        //Intent intent = new Intent(MateriasActivity.this,ExamOpt2Activity.class);
+        //intent.putExtra("tema",indica);
+        //startActivity(intent);
+
+        Intent intent = new Intent(MateriasActivity.this, ExamOpt2Activity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("Alumno", alumno);
+        intent.putExtras(bundle);
+        intent.putExtra("Materia", 1);
         intent.putExtra("tema",indica);
         startActivity(intent);
+
     }
 
     public void cargarPreferencias(){

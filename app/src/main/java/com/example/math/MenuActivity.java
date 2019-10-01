@@ -14,15 +14,25 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MenuActivity extends AppCompatActivity {
+
+    //Atributos externos de la clase
+    Alumno alumno = null;
+
+    //Atributos propios de la clase
     ImageView mat, resultados, confi;
     RelativeLayout ll;
     int request_code = 1;
     String tema, indica;
-    TextView conf,res,mate,alumno;
+    TextView conf,res,mate,alumnoEtiqueta;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_materias);
+
+        Bundle bundleRecibido = getIntent().getExtras();
+        alumno = (Alumno) bundleRecibido.getSerializable("Alumno");
+
 
         mat = (ImageView) findViewById(R.id.img_meteria);
         resultados = (ImageView) findViewById(R.id.img_resultados);
@@ -32,7 +42,9 @@ public class MenuActivity extends AppCompatActivity {
         conf = (TextView) findViewById(R.id.lbd_configuracion);
         res = (TextView) findViewById(R.id.lbd_resultados);
         mate = (TextView) findViewById(R.id.lbd_materias);
-        alumno = (TextView) findViewById(R.id.alumno);
+        alumnoEtiqueta = (TextView) findViewById(R.id.alumno);
+
+        alumnoEtiqueta.setText(alumno.getNombre() + " " + alumno.getApellidoP() + " " + alumno.getApellidoM());
 
         cargarPreferencias();
 
@@ -41,14 +53,14 @@ public class MenuActivity extends AppCompatActivity {
             conf.setTextColor(Color.rgb(255,255,255));
             res.setTextColor(Color.rgb(255,255,255));
             mate.setTextColor(Color.rgb(255,255,255));
-            alumno.setTextColor(Color.rgb(255,255,255));
+            alumnoEtiqueta.setTextColor(Color.rgb(255,255,255));
 
         }if(indica.equals("off")){
             ll.setBackgroundColor(Color.rgb(255,255,255));
             conf.setTextColor(Color.rgb(32,32,32));
             res.setTextColor(Color.rgb(32,32,32));
             mate.setTextColor(Color.rgb(32,32,32));
-            alumno.setTextColor(Color.rgb(32,32,32));
+            alumnoEtiqueta.setTextColor(Color.rgb(32,32,32));
 
         }
 
@@ -81,16 +93,31 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void Ver_materias(){
-        Intent intent = new Intent(MenuActivity.this,MateriasActivity.class);
+        //Intent intent = new Intent(MenuActivity.this,MateriasActivity.class);
+        //intent.putExtra("tema",indica);
+        //startActivity(intent);
+
+        Intent intent = new Intent(MenuActivity.this, MateriasActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("Alumno", alumno);
+        intent.putExtras(bundle);
         intent.putExtra("tema",indica);
         startActivity(intent);
 
     }
 
     public void Ver_resultados(){
-        Intent intent = new Intent(MenuActivity.this,SelectResActivity.class);
+        //Intent intent = new Intent(MenuActivity.this,SelectResActivity.class);
+        //intent.putExtra("tema",indica);
+        //startActivity(intent);
+
+        Intent intent = new Intent(MenuActivity.this, SelectResActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("Alumno", alumno);
+        intent.putExtras(bundle);
         intent.putExtra("tema",indica);
         startActivity(intent);
+
     }
 
     public void Configuracion(){
@@ -112,7 +139,7 @@ public class MenuActivity extends AppCompatActivity {
                 conf.setTextColor(Color.rgb(255,255,255));
                 res.setTextColor(Color.rgb(255,255,255));
                 mate.setTextColor(Color.rgb(255,255,255));
-                alumno.setTextColor(Color.rgb(255,255,255));
+                alumnoEtiqueta.setTextColor(Color.rgb(255,255,255));
                 guardarPreferencias();
 
             }if (tema.equals("off")){
@@ -120,7 +147,7 @@ public class MenuActivity extends AppCompatActivity {
                 conf.setTextColor(Color.rgb(32,32,32));
                 res.setTextColor(Color.rgb(32,32,32));
                 mate.setTextColor(Color.rgb(32,32,32));
-                alumno.setTextColor(Color.rgb(32,32,32));
+                alumnoEtiqueta.setTextColor(Color.rgb(32,32,32));
                 guardarPreferencias();
 
 
