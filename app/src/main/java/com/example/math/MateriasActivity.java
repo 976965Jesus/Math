@@ -15,15 +15,15 @@ import com.example.math.preguntas.Exam_2_1Activity;
 
 public class MateriasActivity extends AppCompatActivity {
 
-<<<<<<< HEAD
+
     //Atributos Externos d ela Clase
     Alumno alumno = null;
 
     //Atributos internos de la clase
-    TextView titulo,algebra;
-=======
+
+
     TextView titulo,algebra,geometria,trigonometria;
->>>>>>> a966098fda19b6d421fc11fe3d3ccb8eae3607dd
+
     RelativeLayout ll;
     String tema,indica;
     @Override
@@ -58,41 +58,35 @@ public class MateriasActivity extends AppCompatActivity {
         algebra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ingresa();
+                ingresa_algebra();
             }
         });
         geometria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ingresa();
+                //ingresa();
             }
         });
         trigonometria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ingresa();
+                //ingresa();
             }
         });
     }
 
-<<<<<<< HEAD
     public void ingresa_algebra(){
         //Intent intent = new Intent(MateriasActivity.this,ExamOpt2Activity.class);
         //intent.putExtra("tema",indica);
         //startActivity(intent);
 
-        Intent intent = new Intent(MateriasActivity.this, ExamOpt2Activity.class);
+        Intent intent = new Intent(MateriasActivity.this, Exam_2_1Activity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("Alumno", alumno);
         intent.putExtras(bundle);
         intent.putExtra("Materia", 1);
-=======
-    public void ingresa(){
-        Intent intent = new Intent(MateriasActivity.this, Exam_2_1Activity.class);
->>>>>>> a966098fda19b6d421fc11fe3d3ccb8eae3607dd
         intent.putExtra("tema",indica);
         startActivity(intent);
-
     }
 
 

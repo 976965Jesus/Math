@@ -20,7 +20,7 @@
         app:fontFamily="sans-serif"/>
 
     <TextView
-        android:id="@+id/question"
+        android:id="@+id/question_1"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:text="Pregunta"
@@ -34,31 +34,26 @@
         android:layout_width="350dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/question"
+        android:layout_below="@id/question_1"
         android:layout_marginTop="25dp"
         android:background="@color/gris"/>
 
     <EditText
-        android:id="@+id/input_res"
+        android:id="@+id/input_res1"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/question"
+        android:layout_below="@id/question_1"
         android:layout_marginTop="50dp"
         android:background="@color/gris"
         android:gravity="top"/>
 
 
     <Button
-        android:id="@+id/btn_continua2"
+        android:id="@+id/btn_continua2_1"
         android:layout_width="280dp"
         android:layout_height="50dp"
-<<<<<<< HEAD:app/src/main/res/layout/activity_exam_opt2.xml
-        android:layout_below="@id/text_area"
-=======
-        android:layout_below="@id/input_res"
-        android:layout_marginTop="100dp"
->>>>>>> a966098fda19b6d421fc11fe3d3ccb8eae3607dd:app/src/main/res/layout/activity_exam_2_1.xml
+        android:layout_below="@id/input_res1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:background="@drawable/button_orange"
