@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.math.preguntas.Exam_2_1Activity;
+import com.example.math.preguntas.*;
 
 import com.example.math.preguntas.Exam_2_1Activity;
 
@@ -87,11 +87,12 @@ public class MateriasActivity extends AppCompatActivity {
 
         //Se cambio el nombre de la pantalla de examen antes era Examen_Opt2 ahora es Exam_2_1Activity (_1 es por ser la primera pantalla de las preguntas)
         Intent intent = new Intent(MateriasActivity.this, Exam_2_1Activity.class);
+        intent.putExtra("tema", indica);
         Bundle bundle = new Bundle();
         bundle.putSerializable("Alumno", alumno);
         intent.putExtras(bundle);
         intent.putExtra("Materia", 1);
-        intent.putExtra("tema", indica);
+
         startActivity(intent);
 /*/=======
     public void ingresa(){

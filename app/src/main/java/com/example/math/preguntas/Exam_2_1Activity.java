@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -21,6 +22,10 @@ import com.example.math.AdminSQLiteOpenHelper;
 
 import java.text.DecimalFormat;
 
+import com.example.math.MenuActivity;
+import com.example.math.SelectResActivity;
+import com.example.math.preguntas.*;
+import com.example.math.MateriasActivity;
 import com.example.math.R;
 
 public class Exam_2_1Activity extends AppCompatActivity {
@@ -42,6 +47,8 @@ public class Exam_2_1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exam_2_1);
 
+
+
         Bundle bundleRecibido = getIntent().getExtras();
         alumno = (Alumno) bundleRecibido.getSerializable("Alumno");
         Materia = (int) bundleRecibido.getInt("Materia");
@@ -54,6 +61,7 @@ public class Exam_2_1Activity extends AppCompatActivity {
         question = (TextView) findViewById(R.id.question_1);
 
         cargarPreferencias();
+
         indica = getIntent().getStringExtra("tema");
         tema = indica;
         if(indica.equals("on")){
@@ -66,8 +74,15 @@ public class Exam_2_1Activity extends AppCompatActivity {
             guardarPreferencias();
         }
 
+        System.out.println(tema);
         Pregunta();
 
+        btn_continuar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abrirSiguientePregunta();
+            }
+        });
 
     }
 
@@ -156,7 +171,7 @@ public class Exam_2_1Activity extends AppCompatActivity {
 
         if(fila.moveToFirst()){
             Toast.makeText(this, "La Pregunta ya fue contestada", Toast.LENGTH_SHORT).show();
-            abrirSiguientePregunta();
+            //abrirSiguientePregunta();
         }else{
             guardar(estatus, valor, resUser, resSystem);
         }
@@ -182,26 +197,28 @@ public class Exam_2_1Activity extends AppCompatActivity {
         database.insert("Respuesta", null, registro);
         database.close();
 
-        abrirSiguientePregunta();
+        //abrirSiguientePregunta();
 
     }
 
     //metodo para abrir la siguiente pregunta
     public void abrirSiguientePregunta(){
-
+        Intent intent = new Intent(Exam_2_1Activity.this, Exam_2_2Activity.class);
+        intent.putExtra("tema",tema);
+        startActivity(intent);
     }
 
     //Metodos Internos del Framen para el diseño
     public void guardarPreferencias(){
         SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
-        indica = misPreferencias.getString("indicadorExam2","");
+        indica = misPreferencias.getString("examenUno","");
     }
 
     public void cargarPreferencias(){
         SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = misPreferencias.edit();
 
-        editor.putString("indicadorExam2",tema);
+        editor.putString("examenUno",tema);
         editor.commit();
     }
 }
