@@ -48,6 +48,7 @@ public class MenuActivity extends AppCompatActivity {
 
         cargarPreferencias();
 
+
         if(indica.equals("on")){
             ll.setBackgroundColor(Color.rgb(25, 25, 25));
             conf.setTextColor(Color.rgb(255,255,255));

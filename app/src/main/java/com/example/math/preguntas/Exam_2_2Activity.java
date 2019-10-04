@@ -37,6 +37,7 @@ public class Exam_2_2Activity extends AppCompatActivity {
     String indica,tema;
     RelativeLayout ll;
     TextView question;
+    Button btn_continua2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +53,13 @@ public class Exam_2_2Activity extends AppCompatActivity {
 
         ll = (RelativeLayout) findViewById(R.id.relative_exam2_2);
         question = (TextView) findViewById(R.id.question_2);
+        btn_continua2 = (Button) findViewById(R.id.btn_continua2_2);
 
-        cargarPreferencias();
+
         indica = getIntent().getStringExtra("tema");
         tema = indica;
 
+        cargarPreferencias();
         if(indica.equals("on")){
             ll.setBackgroundColor(Color.rgb(25,25,25));
             question.setTextColor(Color.rgb(255,255,255));
@@ -118,6 +121,8 @@ public class Exam_2_2Activity extends AppCompatActivity {
         }else if(Materia == 3){
 
         }
+        System.out.println(tema);
+
     }
 
 
@@ -194,7 +199,7 @@ public class Exam_2_2Activity extends AppCompatActivity {
         bundle.putSerializable("Alumno", alumno);
         intent.putExtras(bundle);
         intent.putExtra("Materia", Materia);
-        intent.putExtra("tema",indica);
+        intent.putExtra("tema", indica);
         startActivity(intent);
 
     }
@@ -202,14 +207,14 @@ public class Exam_2_2Activity extends AppCompatActivity {
 
     public void guardarPreferencias(){
         SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
-        indica = misPreferencias.getString("indicadorExam2_2","");
+        indica = misPreferencias.getString("examenDos","");
     }
 
     public void cargarPreferencias(){
         SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = misPreferencias.edit();
 
-        editor.putString("indicadorExam2_2",tema);
+        editor.putString("examenDos",tema);
         editor.commit();
     }
 }

@@ -16,6 +16,7 @@ public class RegistroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
+        //Flecha de retorno
         back = (TextView) findViewById(R.id.lbd_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -11,10 +11,11 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.math.preguntas.*;
+
 import com.example.math.preguntas.Exam_2_1Activity;
 
 public class MateriasActivity extends AppCompatActivity {
-
 
     //Atributos Externos d ela Clase
     Alumno alumno = null;
@@ -23,9 +24,9 @@ public class MateriasActivity extends AppCompatActivity {
 
 
     TextView titulo,algebra,geometria,trigonometria;
-
     RelativeLayout ll;
-    String tema,indica;
+    String tema, indica;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,13 +46,14 @@ public class MateriasActivity extends AppCompatActivity {
         indica = getIntent().getStringExtra("tema");
         tema = indica;
 
-        if (indica.equals("on")){
+        if (indica.equals("on")) {
             ll.setBackgroundColor(Color.rgb(25, 25, 25));
-            titulo.setTextColor(Color.rgb(255,255,255));
+            titulo.setTextColor(Color.rgb(255, 255, 255));
             guardarPreferencias();
-        }if (indica.equals("off")){
-            ll.setBackgroundColor(Color.rgb(255,255,255));
-            titulo.setTextColor(Color.rgb(32,32,32));
+        }
+        if (indica.equals("off")) {
+            ll.setBackgroundColor(Color.rgb(255, 255, 255));
+            titulo.setTextColor(Color.rgb(32, 32, 32));
             guardarPreferencias();
         }
 
@@ -75,34 +77,33 @@ public class MateriasActivity extends AppCompatActivity {
         });
     }
 
-    public void ingresa_algebra(){
-        //Intent intent = new Intent(MateriasActivity.this,ExamOpt2Activity.class);
-        //intent.putExtra("tema",indica);
-        //startActivity(intent);
-
+    public void ingresa_algebra() {
+        //Se cambio el nombre de la pantalla de examen antes era Examen_Opt2 ahora es Exam_2_1Activity (_1 es por ser la primera pantalla de las preguntas)
         Intent intent = new Intent(MateriasActivity.this, Exam_2_1Activity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("Alumno", alumno);
         intent.putExtras(bundle);
         intent.putExtra("Materia", 1);
-        intent.putExtra("tema",indica);
+        intent.putExtra("tema", indica);
         startActivity(intent);
     }
 
 
-    public void cargarPreferencias(){
-        SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
-        indica = misPreferencias.getString("indicadorMaterias","");
+
+
+        public void cargarPreferencias () {
+            SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
+            indica = misPreferencias.getString("indicadorMaterias", "");
+        }
+
+        public void guardarPreferencias () {
+            SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = misPreferencias.edit();
+
+            editor.putString("indicadorMaterias", tema);
+
+            editor.commit();
+        }
+
     }
 
-    public void guardarPreferencias(){
-        SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario",Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = misPreferencias.edit();
-
-        editor.putString("indicadorMaterias",tema);
-
-        editor.commit();
-    }
-
-
-}

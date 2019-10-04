@@ -38,6 +38,7 @@ public class Exam_2_5Activity extends AppCompatActivity {
     String indica,tema;
     RelativeLayout ll;
     TextView question;
+    Button btn_continua_5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,7 @@ public class Exam_2_5Activity extends AppCompatActivity {
 
         ll = (RelativeLayout) findViewById(R.id.relative_exam2_5);
         question = (TextView) findViewById(R.id.question_5);
+        btn_continua_5 = (Button) findViewById(R.id.btn_continua2_5);
 
         cargarPreferencias();
         indica = getIntent().getStringExtra("tema");
@@ -188,15 +190,13 @@ public class Exam_2_5Activity extends AppCompatActivity {
 
     //metodo para abrir la siguiente pregunta
     public void abrirSiguientePregunta(){
-
         Intent intent = new Intent(Exam_2_5Activity.this, Exam_2_6Activity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("Alumno", alumno);
         intent.putExtras(bundle);
         intent.putExtra("Materia", Materia);
-        intent.putExtra("tema",indica);
+        intent.putExtra("tema", indica);
         startActivity(intent);
-
     }
 
     public void guardarPreferencias(){

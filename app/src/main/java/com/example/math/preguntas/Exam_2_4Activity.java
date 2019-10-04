@@ -38,6 +38,7 @@ public class Exam_2_4Activity extends AppCompatActivity {
     String indica,tema;
     RelativeLayout ll;
     TextView question;
+    Button btn_continua4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,7 @@ public class Exam_2_4Activity extends AppCompatActivity {
 
         ll = (RelativeLayout) findViewById(R.id.relative_exam2_4);
         question = (TextView) findViewById(R.id.question_4);
+        btn_continua4 = (Button) findViewById(R.id.btn_continua2_4);
 
         cargarPreferencias();
         indica = getIntent().getStringExtra("tema");
@@ -118,7 +120,9 @@ public class Exam_2_4Activity extends AppCompatActivity {
         }else if(Materia == 3){
 
         }
+
     }
+
 
 
     //Metodo Respuesta 1
@@ -194,7 +198,7 @@ public class Exam_2_4Activity extends AppCompatActivity {
         bundle.putSerializable("Alumno", alumno);
         intent.putExtras(bundle);
         intent.putExtra("Materia", Materia);
-        intent.putExtra("tema",indica);
+        intent.putExtra("tema", indica);
         startActivity(intent);
 
     }

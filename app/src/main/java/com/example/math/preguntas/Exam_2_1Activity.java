@@ -17,10 +17,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.math.Alumno;
+import com.example.math.AdminSQLiteOpenHelper;
+
 import java.text.DecimalFormat;
 
 import com.example.math.AdminSQLiteOpenHelper;
 import com.example.math.Alumno;
+
+import com.example.math.MenuActivity;
+import com.example.math.SelectResActivity;
+import com.example.math.preguntas.*;
 import com.example.math.MateriasActivity;
 import com.example.math.R;
 
@@ -30,7 +37,6 @@ public class Exam_2_1Activity extends AppCompatActivity {
     Alumno alumno = null;
     int Materia = 0;
     int numPregunta = 1;
-
 
     Button btn_continuar;
     EditText textArea;
@@ -44,10 +50,14 @@ public class Exam_2_1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exam_2_1);
 
+
+
         Bundle bundleRecibido = getIntent().getExtras();
         alumno = (Alumno) bundleRecibido.getSerializable("Alumno");
         Materia = (int) bundleRecibido.getInt("Materia");
 
+
+        //variable btn_continua2 se le agrego _1 por ser la pantalla de la primera pregunta
         btn_continuar = (Button) findViewById(R.id.btn_continua2_1);
         textArea = (EditText) findViewById(R.id.input_res1);
 
@@ -55,6 +65,7 @@ public class Exam_2_1Activity extends AppCompatActivity {
         question = (TextView) findViewById(R.id.question_1);
 
         cargarPreferencias();
+
         indica = getIntent().getStringExtra("tema");
         tema = indica;
         if(indica.equals("on")){
@@ -67,8 +78,8 @@ public class Exam_2_1Activity extends AppCompatActivity {
             guardarPreferencias();
         }
 
+        System.out.println(tema);
         Pregunta();
-
 
     }
 
@@ -189,21 +200,20 @@ public class Exam_2_1Activity extends AppCompatActivity {
 
     //metodo para abrir la siguiente pregunta
     public void abrirSiguientePregunta(){
-
         Intent intent = new Intent(Exam_2_1Activity.this, Exam_2_2Activity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("Alumno", alumno);
         intent.putExtras(bundle);
         intent.putExtra("Materia", Materia);
-        intent.putExtra("tema",indica);
+        intent.putExtra("tema",tema);
         startActivity(intent);
-
     }
 
     //Metodos Internos del Framen para el diseño
     public void guardarPreferencias(){
         SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
         indica = misPreferencias.getString("indicadorExam2_1","");
+        indica = misPreferencias.getString("examenUno","");
     }
 
     public void cargarPreferencias(){
@@ -211,6 +221,7 @@ public class Exam_2_1Activity extends AppCompatActivity {
         SharedPreferences.Editor editor = misPreferencias.edit();
 
         editor.putString("indicadorExam2_1",tema);
+        editor.putString("examenUno",tema);
         editor.commit();
     }
 }

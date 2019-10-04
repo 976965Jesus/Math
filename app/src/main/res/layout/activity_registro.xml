@@ -15,10 +15,11 @@
         android:src="@drawable/math1" />
 
     <TextView
+        android:id="@+id/name_logo_ma"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="155dp"
-        android:layout_marginLeft="165dp"
+        android:layout_centerHorizontal="true"
         android:text="MA"
         android:textSize="30dp"
         android:fontFamily="@font/roboto"
@@ -28,11 +29,12 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="155dp"
-        android:layout_marginLeft="210dp"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/name_logo_ma"
         android:text="TH"
         android:textSize="30dp"
         android:fontFamily="@font/roboto"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/lbd_back"
@@ -46,7 +48,7 @@
         android:id="@+id/edt_nombre"
         android:layout_width="270dp"
         android:layout_height="45dp"
-        android:layout_marginLeft="90dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="280dp"
         android:hint="Nombre"
         android:textColor="@color/white"
@@ -55,67 +57,60 @@
         android:textColorHint="@color/white"
         android:background="@drawable/borde"/>
 
-    <ImageView
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:background="@drawable/ic_user"
-        android:layout_marginTop="285dp"
-        android:layout_marginLeft="45dp"/>
-
     <EditText
-        android:id="@+id/edt_apellido"
+        android:id="@+id/edt_apellido_p"
         android:layout_width="270dp"
         android:layout_height="45dp"
-        android:layout_marginLeft="90dp"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/edt_nombre"
         android:layout_marginTop="15dp"
-        android:hint="Apellido"
+        android:hint="Apellido Paterno"
         android:textColorHint="@color/white"
         android:textColor="@color/white"
         android:textSize="18dp"
         android:textAlignment="center"
         android:background="@drawable/borde"/>
 
-    <ImageView
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:background="@drawable/ic_user"
-        android:layout_below="@id/edt_nombre"
-        android:layout_marginTop="21dp"
-        android:layout_marginLeft="45dp"/>
-
     <EditText
-        android:id="@+id/edt_correo"
+        android:id="@+id/edt_apellido_m"
         android:layout_width="270dp"
         android:layout_height="45dp"
-        android:layout_marginLeft="90dp"
-        android:layout_below="@id/edt_apellido"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/edt_apellido_p"
+        android:textColorHint="@color/white"
         android:layout_marginTop="15dp"
-        android:hint="correo electronico"
+        android:hint="Apellido Materno"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        android:background="@drawable/borde"/>
+
+    <EditText
+        android:id="@+id/edt_cuenta"
+        android:layout_width="270dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/edt_apellido_m"
+        android:layout_marginTop="15dp"
+        android:hint="No. cuenta"
         android:textColorHint="@color/white"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="18dp"
         android:background="@drawable/borde"
-        android:inputType="textEmailAddress"/>
-
-    <ImageView
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:background="@drawable/ic_mail"
-        android:layout_below="@id/edt_apellido"
-        android:layout_marginTop="21dp"
-        android:layout_marginLeft="45dp"/>
+        android:inputType="number"/>
 
     <Button
         android:id="@+id/btn_registro"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
+        android:layout_width="210dp"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/edt_correo"
+        android:layout_below="@id/edt_cuenta"
         android:layout_marginTop="60dp"
         android:text="Registrar"
+        android:textSize="18dp"
         android:textColor="@color/white"
-        android:background="@drawable/button_orange"/>
+        android:background="@drawable/button_orange"
+        android:fontFamily="sans-serif"/>
 
 </RelativeLayout>
