@@ -44,6 +44,7 @@ public class Exam_2_3Activity extends AppCompatActivity {
     TextView question;
     Button btn_continua3;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +64,7 @@ public class Exam_2_3Activity extends AppCompatActivity {
         cargarPreferencias();
         indica = getIntent().getStringExtra("tema");
         tema = indica;
+
         if(indica.equals("on")){
             ll.setBackgroundColor(Color.rgb(25,25,25));
             question.setTextColor(Color.rgb(255,255,255));
@@ -203,7 +205,7 @@ public class Exam_2_3Activity extends AppCompatActivity {
         bundle.putSerializable("Alumno", alumno);
         intent.putExtras(bundle);
         intent.putExtra("Materia", Materia);
-        intent.putExtra("tema", indica);
+        intent.putExtra("tema", tema);
         startActivity(intent);
 
     }
@@ -212,14 +214,14 @@ public class Exam_2_3Activity extends AppCompatActivity {
 
     public void guardarPreferencias(){
         SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario", Context.MODE_PRIVATE);
-        indica = misPreferencias.getString("indicadorExam2_3","");
+        indica = misPreferencias.getString("examenTres","");
     }
 
     public void cargarPreferencias(){
         SharedPreferences misPreferencias = getSharedPreferences("preferenciasUsuario",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = misPreferencias.edit();
 
-        editor.putString("indicadorExam2_3",tema);
+        editor.putString("examenTres",tema);
         editor.commit();
     }
 }

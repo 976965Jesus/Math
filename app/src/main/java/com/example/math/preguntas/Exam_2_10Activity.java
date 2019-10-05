@@ -198,7 +198,7 @@ public class Exam_2_10Activity extends AppCompatActivity {
         bundle.putSerializable("Alumno", alumno);
         intent.putExtras(bundle);
         intent.putExtra("Materia", Materia);
-        intent.putExtra("tema", indica);
+        intent.putExtra("tema", tema);
         startActivity(intent);
     }
 
