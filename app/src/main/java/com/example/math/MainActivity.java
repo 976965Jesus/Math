@@ -123,20 +123,9 @@ public class MainActivity extends AppCompatActivity {
     //metodo para ingresar usuarios
     public void Registrar(){//View view
 
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "BaseApp", null, 1);
-        SQLiteDatabase dataBase = admin.getWritableDatabase();
+        Intent intent = new Intent(MainActivity.this, RegistroActivity.class);
+        startActivity(intent);
 
-
-        ContentValues registro =  new ContentValues();
-
-        registro.put("NumCuenta", 338619);
-        registro.put("Nombre", "Edgar Abraham");
-        registro.put("ApellidoPaterno", "Gudiño");
-        registro.put("ApellidoMaterno", "Olguin");
-
-        dataBase.insert("Alumno", null, registro);
-        dataBase.close();
-        Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_SHORT).show();
     }//Fin del metodo registrar
 
 }

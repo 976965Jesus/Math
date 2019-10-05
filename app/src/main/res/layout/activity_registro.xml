@@ -104,13 +104,14 @@
         android:id="@+id/btn_registro"
         android:layout_width="210dp"
         android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/edt_cuenta"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:text="Registrar"
-        android:textSize="18dp"
-        android:textColor="@color/white"
         android:background="@drawable/button_orange"
-        android:fontFamily="sans-serif"/>
+        android:fontFamily="sans-serif"
+        android:onClick="Validar"
+        android:text="Registrar"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
 
 </RelativeLayout>
