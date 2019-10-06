@@ -6,6 +6,8 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,7 +41,11 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Validar();
+                if(text.getText().toString().isEmpty()){
+                    Toast.makeText(MainActivity.this, "Introduce un numero de cuenta", Toast.LENGTH_SHORT).show();
+                }else {
+                    Validar();
+                }
             }
         });
         registro.setOnClickListener(new View.OnClickListener() {
@@ -74,8 +80,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "No Existe el Alumno en Nuestra Base", Toast.LENGTH_SHORT).show();
                 dataBase.close();
             }
-        } else {
-            Toast.makeText(this, "Debes Introducir tu Numero de Cuenta", Toast.LENGTH_SHORT).show();
         }
 
     }//Fin del metodo validar
