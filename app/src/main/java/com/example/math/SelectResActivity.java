@@ -12,6 +12,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class SelectResActivity extends AppCompatActivity {
+
+    Alumno alumno = null;
+
+
     TextView algebra, geometria, trigonometria, titulo;
     double valor;
     String indica,tema;
@@ -20,6 +24,9 @@ public class SelectResActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_res);
+
+        Bundle bundleRecibido = getIntent().getExtras();
+        alumno = (Alumno) bundleRecibido.getSerializable("Alumno");
 
         algebra = (TextView) findViewById(R.id.opt_algebra);
         geometria = (TextView) findViewById(R.id.opt_geometria);
@@ -43,31 +50,31 @@ public class SelectResActivity extends AppCompatActivity {
         algebra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                valor = 8.5;
-                muestra_resultado(valor);
+                muestra_resultadoAlgebra();
             }
         });
 
         geometria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                valor = 7.0;
-                muestra_resultado(valor);
+
             }
         });
 
         trigonometria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                valor = 9.0;
-                muestra_resultado(valor);
+
             }
         });
     }
 
-    public void muestra_resultado(double valor_resultado){
-        Intent intent = new Intent(SelectResActivity.this,ResultadosActivity.class);
-        intent.putExtra("Valor",valor_resultado);
+    public void muestra_resultadoAlgebra(){
+        Intent intent = new Intent(SelectResActivity.this, ResultadosActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("Alumno", alumno);
+        intent.putExtras(bundle);
+        intent.putExtra("Materia", 1);
         intent.putExtra("tema",indica);
         startActivity(intent);
     }

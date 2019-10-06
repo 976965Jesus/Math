@@ -49,19 +49,26 @@ public class RegistroActivity extends AppCompatActivity {
         String apellidoM = etApallidoM.getText().toString();
         String numCuenta = etNumCuenta.getText().toString();
 
-        Cursor fila = dataBase.rawQuery("select NumCuenta, Nombre, ApellidoPaterno, ApellidoMaterno from Alumno where NumCuenta = " + numCuenta, null);
-
-        if(fila.moveToFirst()){
-            Toast.makeText(this, "El Numero de Cuenta ya ha sido Registrado", Toast.LENGTH_SHORT).show();
+        if(numCuenta.isEmpty()){
+            Toast.makeText(this, "Debes llenar el Numero de Cuenta", Toast.LENGTH_SHORT).show();
         }else{
 
-            if(nombre.isEmpty() | apellidoP.isEmpty() | apellidoM.isEmpty() | numCuenta.isEmpty()){
-                Toast.makeText(this, "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
-            }else{
-                Registrar(numCuenta, nombre, apellidoP, apellidoM);
-            }
+            Cursor fila = dataBase.rawQuery("select NumCuenta, Nombre, ApellidoPaterno, ApellidoMaterno from Alumno where NumCuenta = " + numCuenta, null);
 
+            if(fila.moveToFirst()){
+                Toast.makeText(this, "El Numero de Cuenta ya ha sido Registrado", Toast.LENGTH_SHORT).show();
+            }else{
+
+                if(nombre.isEmpty() | apellidoP.isEmpty() | apellidoM.isEmpty() | numCuenta.isEmpty()){
+                    Toast.makeText(this, "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
+                }else{
+                    Registrar(numCuenta, nombre, apellidoP, apellidoM);
+                }
+
+            }
         }
+
+
 
 
 

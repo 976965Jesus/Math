@@ -44,10 +44,18 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="81dp"
         android:layout_marginTop="20dp"
-        android:text="Respuesta erronea en las preguntas 5,8,9"
+        android:text="Click en alguna Pregunta"
         android:textSize="18dp"
-        android:visibility="invisible"/>
+        android:visibility="invisible" />
 
+    <ListView
+        android:id="@+id/lvPregunta"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_below="@id/erores"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="81dp"
+        android:layout_marginTop="50dp" />
 
 
 </RelativeLayout>
