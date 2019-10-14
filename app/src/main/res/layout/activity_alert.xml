@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="200dp"
+    android:background="@drawable/button_red"
+    android:layout_gravity="center"
+    tools:context=".AlertActivity">
+
+    <ImageView
+        android:id="@+id/cerrar_alert"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_off"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/red_2"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Usuario no valido"
+        android:layout_centerHorizontal="true"
+        android:textSize="27dp"
+        android:fontFamily="@font/roboto"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="@color/red_2"/>
+
+    <TextView
+        android:id="@+id/text_mensaje_alert"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="85dp"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        android:textSize="18dp"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/red_2"/>
+</RelativeLayout>

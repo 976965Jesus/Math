@@ -2,16 +2,19 @@ package com.example.math;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
     EditText text;
     Button btn;
     TextView registro;
+    Dialog myDialog;
+
+    //Alerta de la notificacion de error
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +44,16 @@ public class MainActivity extends AppCompatActivity {
         text = (EditText) findViewById(R.id.edt_usuario);
         registro = (TextView) findViewById(R.id.lbd_registro);
 
+        //Alerta
+        mp = MediaPlayer.create(this,R.raw.cuack);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(text.getText().toString().isEmpty()){
-                    Toast.makeText(MainActivity.this, "Introduce un numero de cuenta", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "Introduce un numero de cuenta", Toast.LENGTH_SHORT).show();
+                    mp.start();
+                    ShowPopup("Por favor ingrese un numero de cuenta valido");
                 }else {
                     Validar();
                 }
@@ -77,7 +88,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "NumCuenta: " + alumno.getNumCuenta() + " Nombre: " + alumno.getNombre() + " " + alumno.getApellidoP() + " " + alumno.getApellidoM(), Toast.LENGTH_LONG).show();
                 Seperacion();
             } else {
-                Toast.makeText(this, "No Existe el Alumno en Nuestra Base", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "No Existe el Alumno en Nuestra Base", Toast.LENGTH_SHORT).show();
+                mp.start();
+                ShowPopup("Si no tiene un numero de cuenta registrese por favor");
                 dataBase.close();
             }
         }
@@ -131,5 +144,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }//Fin del metodo registrar
+
+    //Metodo para mostrar alerta
+    public void ShowPopup(String msj){
+        Intent intent = new Intent(MainActivity.this,AlertActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("Mensaje", msj);
+        //para empezar la activity siguiente
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
 
 }

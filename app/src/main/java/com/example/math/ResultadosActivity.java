@@ -35,7 +35,7 @@ public class ResultadosActivity extends AppCompatActivity {
 
     //Atributos de Jesus
     ProgressBar progreso;
-    TextView porcentaje, ic_error,error;
+    TextView porcentaje, ic_error,error,ic_done;
     RelativeLayout ll;
     String indica,tema;
 
@@ -52,6 +52,7 @@ public class ResultadosActivity extends AppCompatActivity {
 
         porcentaje = (TextView) findViewById(R.id.lbd_porcentaje);
         ic_error = (TextView) findViewById(R.id.fail);
+        ic_done = (TextView) findViewById(R.id.done);
         error = (TextView) findViewById(R.id.erores);
         ll = (RelativeLayout) findViewById(R.id.relative_resultados);
 
@@ -87,8 +88,10 @@ public class ResultadosActivity extends AppCompatActivity {
                 if(estatus == 1){
                     error.setText("Pregunta Numero "+listaResultados.get(position).getNumPregunta()+ " Correcta");
                     ic_error.setVisibility(View.INVISIBLE);
+                    ic_done.setVisibility(View.VISIBLE);
                 }else{
                     error.setText("Pregunta Numero "+listaResultados.get(position).getNumPregunta()+ " Incorrecta");
+                    ic_done.setVisibility(View.INVISIBLE);
                     ic_error.setVisibility(View.VISIBLE);
                 }
             }

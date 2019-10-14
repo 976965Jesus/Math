@@ -37,6 +37,16 @@
         android:visibility="invisible"/>
 
     <TextView
+        android:id="@+id/done"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/progreso"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/ic_done"
+        android:visibility="invisible"/>
+
+    <TextView
         android:id="@+id/erores"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
@@ -50,12 +60,13 @@
 
     <ListView
         android:id="@+id/lvPregunta"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="350dp"
+        android:layout_height="270dp"
         android:layout_below="@id/erores"
-        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="81dp"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="50dp"
+        android:background="@color/azul_2"/>
 
 
 </RelativeLayout>

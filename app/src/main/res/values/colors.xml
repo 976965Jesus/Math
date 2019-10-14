@@ -6,6 +6,7 @@
     <color name="masazul">#304269</color>
     <color name="otroazul">#2196F3</color>
     <color name="bluelight">#91BED4</color>
+    <color name="azul_2">#009EFF</color>
 
     <color name="original">#008577</color>
     <color name="green">#45bc62</color>
@@ -14,10 +15,13 @@
     <color name="otronaranja">#F44336</color>
     <color name="orange">#FF5722</color>
     <color name="masnaranja">#F26101</color>
+    <color name="orange_2">#D96E30</color>
 
     <color name="colorAccent">#ff4081</color>
 
     <color name="red">#D60000</color>
+    <color name="red_2">#F21D2F</color>
+    <color name="vino">#731F1F</color>
     <color name="purple">#7c4dff</color>
     <color name="yellow">#ffb300</color>
 
