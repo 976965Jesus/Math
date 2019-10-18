@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".AlertActivity"
-            android:theme="@style/Theme.AppCompat.Translucent">></activity>
+            android:theme="@style/Theme.AppCompat.Translucent"></activity>
         <activity android:name=".Resul_1Activity" />
         <activity android:name=".preguntas.Exam_2_10Activity" />
         <activity android:name=".preguntas.Exam_2_9Activity" />
