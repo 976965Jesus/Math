@@ -4,9 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".SelectResActivity"
     android:id="@+id/relative_select_res">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
     <TextView
         android:id="@+id/lbd_muestra_res"
         android:layout_width="wrap_content"
@@ -59,5 +66,8 @@
         android:textColor="@color/white"
         android:textAlignment="center"
         android:gravity="center"/>
+
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

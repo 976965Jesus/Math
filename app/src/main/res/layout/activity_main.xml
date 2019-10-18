@@ -2,10 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
 
 
     <ImageView
@@ -16,10 +26,11 @@
         android:src="@drawable/math1" />
 
     <TextView
+        android:id="@+id/ma"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="155dp"
-        android:layout_marginLeft="165dp"
+        android:layout_marginLeft="163dp"
         android:text="MA"
         android:textSize="30dp"
         android:fontFamily="@font/roboto"
@@ -29,7 +40,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="155dp"
-        android:layout_marginLeft="210dp"
+        android:layout_toRightOf="@id/ma"
         android:text="TH"
         android:textSize="30dp"
         android:fontFamily="@font/roboto"
@@ -42,7 +53,25 @@
         android:layout_marginTop="250dp"
         android:background="@color/gray" />
 
+    <EditText
+        android:id="@+id/edt_usuario"
+        android:layout_width="223dp"
+        android:layout_height="45dp"
+        android:layout_toRightOf="@id/img_user"
+        android:layout_marginLeft="-20dp"
+        android:layout_marginTop="353dp"
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="Numero de cuenta"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        android:inputType="number"
+        android:background="@drawable/borde" />
+
     <TextView
+        android:id="@+id/img_user"
         android:layout_width="95dp"
         android:layout_height="45dp"
         android:layout_marginLeft="65dp"
@@ -55,26 +84,6 @@
         android:src="@drawable/usuario2"
         android:layout_marginTop="361dp"
         android:layout_marginLeft="80dp"/>
-
-    <EditText
-        android:id="@+id/edt_usuario"
-        android:layout_width="223dp"
-        android:layout_height="45dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="353dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="65dp"
-        android:ems="10"
-        android:fontFamily="@font/roboto"
-        android:hint="Numero de cuenta"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="18dp"
-        android:textAlignment="center"
-        android:inputType="number"
-        android:background="@drawable/borde" />
 
     <Button
         android:id="@+id/btn_login"
@@ -110,5 +119,10 @@
         android:textColor="@color/white"
         android:textSize="16dp"
         android:fontFamily="sans-serif-black"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 
 </RelativeLayout>

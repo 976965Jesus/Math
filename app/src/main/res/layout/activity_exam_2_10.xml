@@ -4,62 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".preguntas.Exam_2_10Activity"
     android:background="@color/white"
     android:id="@+id/relative_exam2_10">
 
-    <TextView
-        android:id="@+id/lbdQuestion"
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:text="Responde de forma correcta"
-        android:textColor="@color/orange"
-        android:textSize="30dp"
-        app:fontFamily="sans-serif"/>
 
-    <TextView
-        android:id="@+id/question_10"
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:text="Pregunta"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/lbdQuestion"
-        android:layout_marginTop="20dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="350dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/question_10"
-        android:layout_marginTop="25dp"
-        android:background="@color/gris"/>
-
-    <EditText
-        android:id="@+id/input_res10"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/question_10"
-        android:layout_marginTop="50dp"
-        android:background="@color/gris"
-        android:gravity="top"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
-    <Button
-        android:id="@+id/btn_continua2_10"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/input_res10"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/button_orange"
-        android:onClick="respuestaContinuar"
-        android:text="Continuar"
-        android:textColor="@color/white"
-        android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/lbdQuestion"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:text="Responde de forma correcta"
+            android:textColor="@color/orange"
+            android:textSize="30dp"
+            app:fontFamily="sans-serif"/>
+
+        <TextView
+            android:id="@+id/question_10"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:text="Pregunta"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/lbdQuestion"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/question_10"
+            android:layout_marginTop="25dp"
+            android:background="@color/gris"/>
+
+        <EditText
+            android:id="@+id/input_res10"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/question_10"
+            android:layout_marginTop="50dp"
+            android:background="@color/gris"
+            android:gravity="top"/>
+
+
+        <Button
+            android:id="@+id/btn_continua2_10"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/input_res10"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/button_orange"
+            android:onClick="respuestaContinuar"
+            android:text="Continuar"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

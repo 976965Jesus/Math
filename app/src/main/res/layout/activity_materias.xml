@@ -4,9 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MateriasActivity"
     android:background="@color/white"
     android:id="@+id/relative_materias">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
 
     <TextView
         android:id="@+id/lbd_title_materias"
@@ -60,5 +70,8 @@
         android:textColor="@color/white"
         android:textAlignment="center"
         android:gravity="center"/>
+
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>
