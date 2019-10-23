@@ -16,7 +16,7 @@ public class SelectResActivity extends AppCompatActivity {
     Alumno alumno = null;
 
 
-    TextView algebra, geometria, trigonometria, titulo;
+    TextView algebra,fisica, geometria, trigonometria, titulo;
     double valor;
     String indica,tema;
     RelativeLayout ll;
@@ -29,6 +29,7 @@ public class SelectResActivity extends AppCompatActivity {
         alumno = (Alumno) bundleRecibido.getSerializable("Alumno");
 
         algebra = (TextView) findViewById(R.id.opt_algebra);
+        fisica = (TextView) findViewById(R.id.opt_fisica);
         geometria = (TextView) findViewById(R.id.opt_geometria);
         trigonometria = (TextView) findViewById(R.id.opt_trigonometria);
         ll = (RelativeLayout) findViewById(R.id.relative_select_res);
@@ -50,26 +51,34 @@ public class SelectResActivity extends AppCompatActivity {
         algebra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                muestra_resultadoAlgebra();
+                //muestra_resultadoAlgebra();
+                ShowPopup("Actualmente la materia no esta disponible","Materia no cargada","alerta","continua");
+            }
+        });
+
+        fisica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                muestra_resultadoFisica();
             }
         });
 
         geometria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                ShowPopup("Actualmente la materia no esta disponible","Materia no cargada","alerta","continua");
             }
         });
 
         trigonometria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                ShowPopup("Actualmente la materia no esta disponible","Materia no cargada","alerta","continua");
             }
         });
     }
 
-    public void muestra_resultadoAlgebra(){
+    public void muestra_resultadoFisica(){
         Intent intent = new Intent(SelectResActivity.this, ResultadosActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("Alumno", alumno);
@@ -90,6 +99,19 @@ public class SelectResActivity extends AppCompatActivity {
 
         editor.putString("indicadorSelectRes",tema);
         editor.commit();
+    }
+
+    //Metodo para mostrar alerta
+    public void ShowPopup(String msj, String tit, String tipo, String accion){
+        Intent intent = new Intent(SelectResActivity.this,AlertActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("Mensaje", msj);
+        bundle.putSerializable("Titulo",tit);
+        bundle.putSerializable("Tipo",tipo);
+        bundle.putSerializable("Accion",accion);
+        //para empezar la activity siguiente
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }
 

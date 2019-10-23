@@ -7,7 +7,8 @@
     android:layout_height="200dp"
     android:background="@drawable/button_red"
     android:layout_gravity="center"
-    tools:context=".AlertActivity">
+    tools:context=".AlertActivity"
+    android:id="@+id/relative_alert">
 
     <ImageView
         android:id="@+id/cerrar_alert"
@@ -20,10 +21,11 @@
 
 
     <TextView
+        android:id="@+id/text_title_alert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Usuario no valido"
+        android:text=""
         android:layout_centerHorizontal="true"
         android:textSize="27dp"
         android:fontFamily="@font/roboto"
@@ -35,8 +37,9 @@
         android:id="@+id/text_mensaje_alert"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
+        android:layout_below="@id/text_title_alert"
         android:text=""
         android:textSize="18dp"
         android:textColor="@color/colorPrimary"

@@ -27,10 +27,7 @@ public class MainActivity extends AppCompatActivity {
     EditText text;
     Button btn;
     TextView registro;
-    Dialog myDialog;
 
-    //Alerta de la notificacion de error
-    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,16 +41,13 @@ public class MainActivity extends AppCompatActivity {
         text = (EditText) findViewById(R.id.edt_usuario);
         registro = (TextView) findViewById(R.id.lbd_registro);
 
-        //Alerta
-        mp = MediaPlayer.create(this,R.raw.cuack);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(text.getText().toString().isEmpty()){
                     //Toast.makeText(MainActivity.this, "Introduce un numero de cuenta", Toast.LENGTH_SHORT).show();
-                    mp.start();
-                    ShowPopup("Por favor ingrese un numero de cuenta valido");
+                    ShowPopup("Por favor ingrese un numero de cuenta valido","Usuario no valido","error","continua");
                 }else {
                     Validar();
                 }
@@ -85,12 +79,11 @@ public class MainActivity extends AppCompatActivity {
                 alumno.setApellidoP(fila.getString(2));
                 alumno.setApellidoM(fila.getString(3));
                 dataBase.close();
-                Toast.makeText(this, "NumCuenta: " + alumno.getNumCuenta() + " Nombre: " + alumno.getNombre() + " " + alumno.getApellidoP() + " " + alumno.getApellidoM(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, "NumCuenta: " + alumno.getNumCuenta() + " Nombre: " + alumno.getNombre() + " " + alumno.getApellidoP() + " " + alumno.getApellidoM(), Toast.LENGTH_LONG).show();
                 Seperacion();
             } else {
                 //Toast.makeText(this, "No Existe el Alumno en Nuestra Base", Toast.LENGTH_SHORT).show();
-                mp.start();
-                ShowPopup("Si no tiene un numero de cuenta registrese por favor");
+                ShowPopup("Si no tiene un numero de cuenta registrese por favor","Usuario no valido","error","continua");
                 dataBase.close();
             }
         }
@@ -119,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         numCuenta = numCuenta/10;
         alumno.setDigito1(numCuenta%10);
 
-        Toast.makeText(this, "D1: " + alumno.getDigito1() + " D2: " + alumno.getDigito2() + " D3: " + alumno.getDigito3() + " D4: " + alumno.getDigito4() + " D5: " + alumno.getDigito5() + " D6: " + alumno.getDigito6(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "D1: " + alumno.getDigito1() + " D2: " + alumno.getDigito2() + " D3: " + alumno.getDigito3() + " D4: " + alumno.getDigito4() + " D5: " + alumno.getDigito5() + " D6: " + alumno.getDigito6(), Toast.LENGTH_LONG).show();
         Paso();
 
     }//fin del metodo separa los numeros
@@ -146,10 +139,13 @@ public class MainActivity extends AppCompatActivity {
     }//Fin del metodo registrar
 
     //Metodo para mostrar alerta
-    public void ShowPopup(String msj){
+    public void ShowPopup(String msj, String tit, String tipo, String accion){
         Intent intent = new Intent(MainActivity.this,AlertActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("Mensaje", msj);
+        bundle.putSerializable("Titulo",tit);
+        bundle.putSerializable("Tipo",tipo);
+        bundle.putSerializable("Accion",accion);
         //para empezar la activity siguiente
         intent.putExtras(bundle);
         startActivity(intent);

@@ -11,6 +11,7 @@
     <color name="original">#008577</color>
     <color name="green">#45bc62</color>
     <color name="materialgreen">#00bfa5</color>
+    <color name="otrogreen">#618070</color>
 
     <color name="otronaranja">#F44336</color>
     <color name="orange">#FF5722</color>
@@ -24,6 +25,8 @@
     <color name="vino">#731F1F</color>
     <color name="purple">#7c4dff</color>
     <color name="yellow">#ffb300</color>
+    <color name="yellow_light">#FDE64B</color>
+    <color name="yellow_2">#F2E205</color>
 
     <color name="colorPrimaryDark">#191919</color>
     <color name="gray">#474747</color>

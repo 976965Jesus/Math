@@ -50,17 +50,17 @@ public class RegistroActivity extends AppCompatActivity {
         String numCuenta = etNumCuenta.getText().toString();
 
         if(numCuenta.isEmpty()){
-            Toast.makeText(this, "Debes llenar el Numero de Cuenta", Toast.LENGTH_SHORT).show();
+            ShowPopup("Ingresa un numero de cuenta valido","Numero de  cuenta vacio","error","continua");
         }else{
 
             Cursor fila = dataBase.rawQuery("select NumCuenta, Nombre, ApellidoPaterno, ApellidoMaterno from Alumno where NumCuenta = " + numCuenta, null);
 
             if(fila.moveToFirst()){
-                Toast.makeText(this, "El Numero de Cuenta ya ha sido Registrado", Toast.LENGTH_SHORT).show();
+                ShowPopup("El numero de cuenta ya ha sido registrado","Numero de cuenta no valido","error","continua");
             }else{
 
                 if(nombre.isEmpty() | apellidoP.isEmpty() | apellidoM.isEmpty() | numCuenta.isEmpty()){
-                    Toast.makeText(this, "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
+                    ShowPopup("Llena todos los campos por favor","Campos vacios","error","continua");
                 }else{
                     Registrar(numCuenta, nombre, apellidoP, apellidoM);
                 }
@@ -90,8 +90,20 @@ public class RegistroActivity extends AppCompatActivity {
 
         dataBase.insert("Alumno", null, registro);
         dataBase.close();
-        Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_SHORT).show();
+        ShowPopup("Felicidades! ya estas registrado","Registro exitoso","exito","salir");
     }//Fin del metodo registrar
 
+
+    public void ShowPopup(String msj, String tit, String tipo, String accion){
+        Intent intent = new Intent(RegistroActivity.this,AlertActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("Mensaje", msj);
+        bundle.putSerializable("Titulo",tit);
+        bundle.putSerializable("Tipo",tipo);
+        bundle.putSerializable("Accion",accion);
+        //para empezar la activity siguiente
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
 
 }

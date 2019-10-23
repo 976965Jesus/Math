@@ -23,7 +23,7 @@ public class MateriasActivity extends AppCompatActivity {
     //Atributos internos de la clase
 
 
-    TextView titulo,algebra,geometria,trigonometria;
+    TextView titulo,algebra,fisica,geometria,trigonometria;
     RelativeLayout ll;
     String tema, indica;
 
@@ -37,6 +37,7 @@ public class MateriasActivity extends AppCompatActivity {
 
         titulo = (TextView) findViewById(R.id.lbd_title_materias);
         algebra = (TextView) findViewById(R.id.opt_algebra);
+        fisica = (TextView) findViewById(R.id.opt_fisica);
         geometria = (TextView) findViewById(R.id.opt_geometria);
         trigonometria = (TextView) findViewById(R.id.opt_trigonometria);
         ll = (RelativeLayout) findViewById(R.id.relative_materias);
@@ -60,24 +61,37 @@ public class MateriasActivity extends AppCompatActivity {
         algebra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ingresa_algebra();
+                //ingresa_algebra();
+                ShowPopup("Actualmente la materia no esta disponible","Materia no cargada","alerta","continua");
+            }
+        });
+        fisica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ingresa_fisica();
             }
         });
         geometria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //ingresa();
+                ShowPopup("Actualmente la materia no esta disponible","Materia no cargada","alerta","continua");
             }
         });
         trigonometria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //ingresa();
+                ShowPopup("Actualmente la materia no esta disponible","Materia no cargada","alerta","continua");
             }
         });
     }
 
     public void ingresa_algebra() {
+
+    }
+
+    public void ingresa_fisica(){
         //Se cambio el nombre de la pantalla de examen antes era Examen_Opt2 ahora es Exam_2_1Activity (_1 es por ser la primera pantalla de las preguntas)
         Intent intent = new Intent(MateriasActivity.this, Exam_2_1Activity.class);
         Bundle bundle = new Bundle();
@@ -104,6 +118,19 @@ public class MateriasActivity extends AppCompatActivity {
 
             editor.commit();
         }
+
+    //Metodo para mostrar alerta
+    public void ShowPopup(String msj, String tit, String tipo, String accion){
+        Intent intent = new Intent(MateriasActivity.this,AlertActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("Mensaje", msj);
+        bundle.putSerializable("Titulo",tit);
+        bundle.putSerializable("Tipo",tipo);
+        bundle.putSerializable("Accion",accion);
+        //para empezar la activity siguiente
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
 
     }
 
