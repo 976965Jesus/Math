@@ -1,9 +1,11 @@
 package com.example.math.preguntas;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -80,6 +82,38 @@ public class Exam_2_3Activity extends AppCompatActivity {
 
 
     }
+
+    //Evento regresar
+
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        final AlertDialog.Builder alertOpciones = new AlertDialog.Builder(this);
+        alertOpciones.setMessage("En verdad desea salir del examen");
+        alertOpciones.setTitle("Salir");
+        alertOpciones.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(Exam_2_3Activity.this, MenuActivity.class);
+                //pasamos los datos necesarios para poder ejecutar el activity
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("Alumno", alumno);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                finish();
+            }
+        });
+        alertOpciones.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog dialog = alertOpciones.create();
+        dialog.show();
+    }
+
 
     //Metodos externos del frame
 

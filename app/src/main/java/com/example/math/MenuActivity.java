@@ -93,6 +93,12 @@ public class MenuActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
     public void Ver_materias(){
         //Intent intent = new Intent(MenuActivity.this,MateriasActivity.class);
         //intent.putExtra("tema",indica);
